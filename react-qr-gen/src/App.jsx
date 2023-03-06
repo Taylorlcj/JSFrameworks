@@ -23,7 +23,14 @@ function App() {
 				onChange={(evt) => seturl(evt.target.value)}
 			/>
 			<button onClick={GenerateQRCode}>Generate</button>
-			<img src="{qrcode}" />
+			{qrcode && (
+				<>
+					<img src={qrcode} />
+					<a href={qrcode} download="qrcode.png">
+						Download
+					</a>
+				</>
+			)}
 		</div>
 	);
 }
