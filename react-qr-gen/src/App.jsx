@@ -6,12 +6,21 @@ function App() {
 	const [qrcode, setQrcode] = useState("");
 
 	const GenerateQRCode = () => {
-		QRCode.toDataURL(url, (err, url) => {
-			if (err) return console.error(err);
-
-			console.log(url);
-			setQrcode(url);
-		});
+		QRCode.toDataURL(
+			url,
+			{
+				width: 800,
+				margin: 2,
+				color: {
+					dark: "#335383ff",
+					light: "#000000ff",
+				},
+			},
+			(err, url) => {
+				if (err) return console.error(err);
+				setQrcode(url);
+			}
+		);
 	};
 	return (
 		<div className="app">
